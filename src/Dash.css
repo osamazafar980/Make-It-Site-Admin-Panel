@@ -247,6 +247,43 @@
     border-left: 1px solid #FFFFFF99;
     background-color: white;
   }
+  .recipeHeader{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: end;
+  }
+    #rOptionsButton{
+    width: fit-content;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    background: transparent;
+    color: white;
+    height: 50px;
+    border-top: 1px solid #FFFFFF99;
+    border-bottom: 1px solid #FFFFFF99;
+    border-right: 1px solid #FFFFFF99;
+    border-left: 1px solid #FFFFFF99;
+    border-radius: 20px 20px 20px 20px;
+    background-color: forestgreen;
+    margin-right: 20px;
+  }
+  #rOptionsButton:hover{
+    outline: none;
+    background-color: #FFFFFF60;
+    color: black;
+    cursor: pointer;
+  }
+  .rButtonBox{
+    width: 50%;
+  }
+  .rHeaderBox{
+    width: 50%;
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+  }
   #rbutton:hover{
     outline: none;
     background-color: forestgreen;

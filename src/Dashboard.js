@@ -2,6 +2,8 @@ import './Dash.css';
 import React, {useState , useEffect} from 'react';
 import { useHistory, useLocation } from "react-router";
 import { useNavigate,useParams } from "react-router-dom";
+import './Dietplanmodal.css';
+import Modal from 'react-modal';
 import firebase from 'firebase';
 import {
   getFirestore, query,
@@ -33,7 +35,11 @@ function Dashboard(props) {
  const [urecipes,setRecipes] = useState([])
  const [approved,setApproved] = useState('0')
  const [pending,setPending] = useState('0')
- const [Total,setTotal] = useState('0')
+  const [modalopenRecipe, setmodalopenRecipe] = useState(false);
+  const [Total,setTotal] = useState('0')
+  const [title,setTitle] = useState("")
+  const [pic,setPic] = useState("")
+  const [web,setWeb] = useState("")
  useEffect(()=>{
     
     db.collection("feebacks")
@@ -273,7 +279,21 @@ var SubmitUpdateForm = (event)=>{
   else if(signedIn=='signedIn' && status=='recipes'){
     return(
       <div className='reportBox'>
+        <div className='recipeHeader'>
+        <div className='rHeaderBox'>
         <p id='reportHeader'>Recipes</p>
+        </div>
+        <div className='rButtonBox'>
+        <button id='rOptionsButton' onClick={
+                  ()=>{
+                    setmodalopenRecipe(true)
+                    setTitle("")
+                    setPic("")
+                    setWeb("")
+                  }
+                }>Add New Recipe</button>
+        </div>
+        </div>
         <div id='reports'>
         {
           urecipes.map(function(recipe, idx) {
@@ -312,6 +332,88 @@ var SubmitUpdateForm = (event)=>{
           <button id='reportButton' onClick={back}>Back</button>
         </div>
         </div>
+        <Modal className='Dietplan_modal' isOpen={modalopenRecipe} shouldCloseOnOverlayClick={false} onRequestClose={() => setmodalopenRecipe(false)}>
+          <div className='Dietplan_search-container'>
+            <h3 className='Dietplan_subheader'>
+              Recipe Detials
+            </h3>
+            <div>
+              <div className='Recipe_Input'>
+                <h2>Recipe Title</h2>
+                <input
+                  className='Recipe_Input-input'
+                  id="rInpt"
+                  type='text'
+                  placeholder='Recipe Title'
+                  value={title}
+                  onChange={(e)=>{
+                    setTitle(e.target.value)
+                  }}
+
+                />
+              </div>
+              <div className='Recipe_Input'>
+                <h2>Recipe Photo Link</h2>
+                <input
+                  className='Recipe_Input-input'
+                  id="rInpt"
+                  type='text'
+                  placeholder='Recipe Photo Link'
+                  value={pic}
+                  onChange={(e)=>{
+                    setPic(e.target.value)
+                  }}
+                />
+              </div>
+              <div className='Recipe_Input'>
+                <h2>Recipe Webpage Link</h2>
+                <input
+                  className='Recipe_Input-input'
+                  id="rInpt"
+                  type='text'
+                  placeholder='Recipe Webpage Link'
+                  value={web}
+                  onChange={(e)=>{
+                    setWeb(e.target.value)
+                  }}
+                />
+              </div>
+            <div className="buttonContainer">
+            <button className="customButtons"
+              onClick={async () => {
+                if(title.length==0){
+                  alert("Recipe Title Required")
+                }else if(pic.length==0){
+                  alert("Recipe Picture Link Required")
+                }else if(web.length==0){
+                  alert("Recipe Webpage Link Required")
+                }else{
+                  db.collection("userRecipes").add({ 
+                    title:title,
+                    picURL:pic,
+                    webURL:web,
+                    status:"approved",
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                  });
+                  db.collection("Notification").add( {
+                    id:uname, 
+                    msg:"Recipe "+title+" added by "+uname+" (Administrator)",
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                  });
+                alert("Recipe Added")
+                setmodalopenRecipe(false)
+                }
+              }}       >
+              Add Recipe
+            </button>
+            <button className="customButtons"
+              onClick={() => setmodalopenRecipe(false)}       >
+              Close
+            </button>
+          </div>
+          </div>
+          </div>
+        </Modal>
       </div>
       );
   }
