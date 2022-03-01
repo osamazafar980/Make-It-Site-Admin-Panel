@@ -8,15 +8,19 @@
     margin-top: auto;
     margin-bottom: auto;
     width: 90%;
-    background-color: forestgreen;
-    border: 1px solid white;
+    background-color: black;
+    border: 1px solid black;
     margin-top: 20px;
+  }
+  .inputCover{
+    
   }
   .DashBoard{
     width:100%;
     height: 100%;
     padding-bottom:5%;
-    background-color: forestgreen;
+    background-color: white;
+    border: 1px solid black;
   }
   #dashRow{
     display: flex;
@@ -31,11 +35,11 @@
   #dashSectionL p{
     font-weight: 100;
     font-size:24px;
-    color: white;
+    color: black;
   }
   #dashOptions{
     width: 80%;
-    border: 1px solid white;
+    border: 1px solid black;
     margin-left:10%;
     display: flex;
     flex-direction: column;
@@ -47,14 +51,15 @@
     margin-left: 20%;
     box-sizing: border-box;
     background: transparent;
-    color: white;
+    color: black;
     height: 50px;
     border-top: 1px solid #FFFFFF99;
     border-bottom: 1px solid #FFFFFF99;
     border-right: 1px solid #FFFFFF99;
     border-left: 1px solid #FFFFFF99;
     border-radius: 20px 20px 20px 20px;
-    background-color: forestgreen;
+    background-color: grey;
+    border: 1px solid black;
   }
   #dashOptionsButton:hover{
     outline: none;
@@ -69,15 +74,25 @@
     margin-left: 20%;
     box-sizing: border-box;
     background: transparent;
-    color: white;
+    color: black;
     height: 50px;
     border-top: 1px solid #FFFFFF99;
     border-bottom: 1px solid #FFFFFF99;
     border-right: 1px solid #FFFFFF99;
     border-left: 1px solid #FFFFFF99;
     border-radius: 20px 20px 20px 20px;
-    background-color: forestgreen;
+    background-color: grey;
+    border: 1px solid black;
     margin-bottom: 20%;
+  }
+  #rInpt{
+    background-color: grey;
+  }
+  #dashStatBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
   }
   #dashOptionsButtonLast:hover{
     outline: none;
@@ -93,7 +108,7 @@
   #dashSectionR p{
     font-weight: 100;
     font-size:24px;
-    color: white;
+    color: black;
     padding-top: 1%;
   }
   #dashStatsReportsUpdate{
@@ -103,55 +118,40 @@
     padding: 12px 20px;
     box-sizing: border-box;
     background: transparent;
-    color: white;
+    color: black;
     height: 50px;
     border-top: 1px solid #FFFFFF99;
     border-bottom: 1px solid #FFFFFF99;
     border-right: 1px solid #FFFFFF99;
     border-left: 1px solid #FFFFFF99;
     border-radius: 20px 20px 20px 20px;
-    background-color: forestgreen;
+    background-color: white;
+    border: 1px solid grey;
   }
   #dashStatsReportsUpdate:hover{
     outline: none;
-    background-color: #FFFFFF60;
+    background-color: grey;
     color: black;
     cursor: pointer;
-  }
-  #dashStatsReportsUpdateProgress{
-    width: 30%;
-    margin-bottom: 20px;
-    margin-top:5% ;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    background: transparent;
-    color: white;
-    height: 50px;
-    border-top: 1px solid #FFFFFF99;
-    border-bottom: 1px solid #FFFFFF99;
-    border-right: 1px solid #FFFFFF99;
-    border-left: 1px solid #FFFFFF99;
-    border-radius: 20px 20px 20px 20px;
-    background-color: forestgreen;
+    border: 1px solid black;
   }
   .dashLoginBg{
     width: 50%;
     margin-left: 25%;
-    padding-top: 10%;
   }
   .dashCreateBox{
     margin-top: 1;
     text-align: center;
-    background-color: forestgreen;
-    border: 1px solid white;
+    background-color: black;
+    border: 1px solid black;
     margin-top: 20px;
   }
   .reportBox{
     margin-left: 10%;
     width: 80%;
-    background-color: forestgreen;
+    background-color: grey;
     padding-bottom: 30px;
-    border: 1px solid white;
+    border: 1px solid black;
     margin-top: 20px;
   }
   #reportHeader{
@@ -172,7 +172,7 @@
   #report{
     width: 60%;
     color: white;
-    border: 1px solid white;
+    border: 1px solid black;
     text-align: justify;
     display: flex;
     flex-direction: row;
@@ -203,7 +203,7 @@
     border-right: 1px solid #FFFFFF99;
     border-left: 1px solid #FFFFFF99;
     border-radius: 20px 20px 20px 20px;
-    background-color: forestgreen;
+    background-color: grey;
     width: fit-content;
     margin-top: 10px;
   }
@@ -221,6 +221,7 @@
   #recipe{
     display: flex;
     flex-direction: row;
+    text-align: left;
   }
   #recipeImg{
     width: 100px;
@@ -239,7 +240,7 @@
   #rbutton{
     width: fit-content;
     background: transparent;
-    color: forestgreen;
+    color: grey;
     height: 50px;
     border-top: 1px solid #FFFFFF99;
     border-bottom: 1px solid #FFFFFF99;
@@ -266,7 +267,7 @@
     border-right: 1px solid #FFFFFF99;
     border-left: 1px solid #FFFFFF99;
     border-radius: 20px 20px 20px 20px;
-    background-color: forestgreen;
+    background-color: grey;
     margin-right: 20px;
   }
   #rOptionsButton:hover{
@@ -286,7 +287,7 @@
   }
   #rbutton:hover{
     outline: none;
-    background-color: forestgreen;
+    background-color: grey;
     color: white;
     cursor: pointer;
   }
